@@ -11,7 +11,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class PhoneService {
+public class PhoneProducerService {
 
     private final KafkaTemplate<String, PhoneEvent> kafkaTemplate;
     private final KafkaProperties kafkaProperties;

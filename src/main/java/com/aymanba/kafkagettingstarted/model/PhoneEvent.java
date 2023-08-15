@@ -20,4 +20,13 @@ public class PhoneEvent {
     private String brand;
     private Double price;
 
+    @Override
+    public String toString() {
+        return "{" +
+                "id=" + id +
+                ", model='" + model + '\'' +
+                ", brand='" + brand + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }

@@ -2,7 +2,7 @@ package com.aymanba.kafkagettingstarted.rest;
 
 import com.aymanba.kafkagettingstarted.model.PhoneEvent;
 import com.aymanba.kafkagettingstarted.request.PhoneRequest;
-import com.aymanba.kafkagettingstarted.service.PhoneService;
+import com.aymanba.kafkagettingstarted.service.PhoneProducerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class PhoneController {
 
-    private final PhoneService phoneService;
+    private final PhoneProducerService phoneProducerService;
 
     @PostMapping("/publish")
-    public ResponseEntity<PhoneEvent> publishPhone(@RequestBody PhoneRequest phoneRequest){
+    public ResponseEntity<PhoneEvent> publishPhone(@RequestBody PhoneRequest phoneRequest) {
         return new ResponseEntity<>(
-                phoneService.publishPhone(phoneRequest),
+                phoneProducerService.publishPhone(phoneRequest),
                 HttpStatus.CREATED);
     }
 }
