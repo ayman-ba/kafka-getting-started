@@ -1,0 +1,5 @@
+kafka-config:
+  bootstrap-servers: localhost:9092
+  topic-name:
+    phones: phones-topic
+
