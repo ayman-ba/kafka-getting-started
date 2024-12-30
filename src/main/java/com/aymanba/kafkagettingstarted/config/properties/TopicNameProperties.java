@@ -8,4 +8,5 @@ import lombok.Setter;
 public class TopicNameProperties {
 
     private String phones;
+    private String phonesAvro;
 }

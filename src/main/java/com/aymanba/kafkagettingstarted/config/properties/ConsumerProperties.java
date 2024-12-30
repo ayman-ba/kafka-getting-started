@@ -8,4 +8,5 @@ import lombok.Setter;
 public class ConsumerProperties {
 
     private String groupId;
+    private String groupIdAvro;
 }

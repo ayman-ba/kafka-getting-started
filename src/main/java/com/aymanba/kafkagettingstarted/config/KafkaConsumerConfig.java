@@ -28,8 +28,7 @@ public class KafkaConsumerConfig {
         consumerProperties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaProperties.getBootstrapServers());
         consumerProperties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         consumerProperties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-        consumerProperties.put(ConsumerConfig.GROUP_ID_CONFIG,
-                kafkaProperties.getConsumer().getGroupId());
+        consumerProperties.put(ConsumerConfig.GROUP_ID_CONFIG, kafkaProperties.getConsumer().getGroupId());
         consumerProperties.put(JsonDeserializer.TRUSTED_PACKAGES, "com.aymanba.kafkagettingstarted.model");
         return new DefaultKafkaConsumerFactory<>(consumerProperties);
     }

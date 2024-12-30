@@ -1,0 +1,29 @@
+{
+  "namespace": "com.aymanba.kafkagettingstarted.model.avro",
+  "type": "record",
+  "name": "PhoneAvroEvent",
+  "fields": [
+    {
+      "name": "id",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "logicalType": "uuid"
+        }
+      ]
+    },
+    {
+      "name": "model",
+      "type": "string"
+    },
+    {
+      "name": "brand",
+      "type": "string"
+    },
+    {
+      "name": "price",
+      "type": "double"
+    }
+  ]
+}

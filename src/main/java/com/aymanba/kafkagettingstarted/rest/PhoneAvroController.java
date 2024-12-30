@@ -1,7 +1,9 @@
 package com.aymanba.kafkagettingstarted.rest;
 
 import com.aymanba.kafkagettingstarted.model.PhoneEvent;
+import com.aymanba.kafkagettingstarted.model.avro.PhoneAvroEvent;
 import com.aymanba.kafkagettingstarted.request.PhoneRequest;
+import com.aymanba.kafkagettingstarted.service.producer.AvroPhoneProducerService;
 import com.aymanba.kafkagettingstarted.service.producer.DefaultPhoneProducerService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -19,16 +21,16 @@ import org.springframework.web.bind.annotation.RestController;
 @ConditionalOnProperty(
         prefix = "kafka-config",
         name = "transfer-mode",
-        havingValue = "WITH_DEFAULT_MODE"
+        havingValue = "WITH_AVRO_AND_SCHEMA_REGISTRY_MODE"
 )
-public class PhoneController {
+public class PhoneAvroController {
 
-    private final DefaultPhoneProducerService defaultPhoneProducerService;
+    private final AvroPhoneProducerService avroPhoneProducerService;
 
     @PostMapping("/publish")
-    public ResponseEntity<PhoneEvent> publishPhone(@RequestBody PhoneRequest phoneRequest) {
+    public ResponseEntity<PhoneAvroEvent> publishPhone(@RequestBody PhoneRequest phoneRequest) {
         return new ResponseEntity<>(
-                defaultPhoneProducerService.publishPhone(phoneRequest),
+                avroPhoneProducerService.publishPhone(phoneRequest),
                 HttpStatus.CREATED);
     }
 }

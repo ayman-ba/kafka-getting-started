@@ -1,7 +1,11 @@
 kafka-config:
-  bootstrap-servers: localhost:9092
+  bootstrap-servers: localhost:19092
   topic-name:
     phones: phones-topic
+    phones-avro: phones-avro-topic
   consumer:
     group-id: phones-topic-group-id
-
+    group-id-avro: phones-avro-topic-group-id
+  transfer-mode: WITH_AVRO_AND_SCHEMA_REGISTRY_MODE
+  # Possible values are WITH_DEFAULT_MODE or WITH_AVRO_AND_SCHEMA_REGISTRY_MODE
+  schema-registry-url: http://localhost:8081

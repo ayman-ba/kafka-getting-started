@@ -14,4 +14,5 @@ public class KafkaProperties {
     private String bootstrapServers;
     private TopicNameProperties topicName;
     private ConsumerProperties consumer;
+    private String schemaRegistryUrl;
 }

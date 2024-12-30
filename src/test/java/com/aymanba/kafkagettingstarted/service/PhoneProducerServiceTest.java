@@ -4,6 +4,7 @@ import com.aymanba.kafkagettingstarted.config.properties.KafkaProperties;
 import com.aymanba.kafkagettingstarted.config.properties.TopicNameProperties;
 import com.aymanba.kafkagettingstarted.model.PhoneEvent;
 import com.aymanba.kafkagettingstarted.request.PhoneRequest;
+import com.aymanba.kafkagettingstarted.service.producer.DefaultPhoneProducerService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,14 +29,14 @@ class PhoneProducerServiceTest {
     @Mock
     private KafkaProperties kafkaPropertiesMock;
 
-    private PhoneProducerService phoneProducerService;
+    private DefaultPhoneProducerService phoneProducerService;
 
     @BeforeEach
     void setup() {
         var topicNameProperties = new TopicNameProperties();
         topicNameProperties.setPhones(PHONES_TOPIC_NAME);
         when(kafkaPropertiesMock.getTopicName()).thenReturn(topicNameProperties);
-        this.phoneProducerService = new PhoneProducerService(
+        this.phoneProducerService = new DefaultPhoneProducerService(
                 kafkaTemplateMock, kafkaPropertiesMock);
     }
 
